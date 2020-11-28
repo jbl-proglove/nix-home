@@ -16,6 +16,8 @@
 #  elemental.home.program.networking.ssh.enable = true;
 
   home.packages = with pkgs; [
+    # window management
+    rofi
     # Rust CLI Tools! I love rust.
     bandwhich
     bat
