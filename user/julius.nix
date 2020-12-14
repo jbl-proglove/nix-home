@@ -165,12 +165,12 @@
     };
   };
 
-  programs.firefox = {
-    enable = true;
-    settings = {
-      browser.startup.page = 3;
-    };
-  };
+#  programs.firefox = {
+#    enable = true;
+#    settings = {
+#      browser.startup.page = 3;
+#    };
+#  };
 
   # Environment
   home.sessionVariables = {
