@@ -112,6 +112,13 @@
     figlet
     lolcat
 #    nms
+
+    # xmonad
+    # TODO is this still needed thanks to the definition in roles?
+    xmobar
+
+    teams
+
   ] ++ lib.optionals stdenv.isLinux [
     # Graphical
 #    anki
@@ -155,6 +162,13 @@
       "lo" = "log --oneline";
       "ln" = "log -n"; # follow with a number to show n logs
       "lon" = "log --oneline -n"; # follow with a number to show n logs
+    };
+  };
+
+  programs.firefox = {
+    enable = true;
+    settings = {
+      browser.startup.page = 3;
     };
   };
 

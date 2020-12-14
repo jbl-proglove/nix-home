@@ -52,11 +52,18 @@
     };
   };
 
+  xsession.windowManager.xmonad = {
+    enable = true;
+    extraPackages = haskellPackages: [
+      haskellPackages.xmobar
+    ];
+  };
+
   xdg.configFile = {
     # TODO I'm not sure how this should work. the source uses bspwm, and I guess this is some
     # global config - which I don't need for xmonad
     # UPDATE: now I think, this is just fine, I'll put the xmonad config there...
-#    "xmonad".source = ../../de/de/xmonad;
+    #"xmonad".source = ../../de/de/xmonad;
     "dunst/dunstrc".source = ../../de/notifications/dunst/dunstrc;
     # this is a deviation from the original source, but I don't get, why the dude added
     # a machine-specific compton config here instead of putting it in the machine/... dir
