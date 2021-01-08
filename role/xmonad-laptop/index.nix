@@ -3,25 +3,39 @@
 # fun :-D
 
 { config, lib, pkgs, attrsets, ... }:
-# I don't need the location setting (some redshift stuff, but not AWS)
-#let location = import ./location.nix;
-#in
+let
+  haskellPkgs = with pkgs.haskellPackages ; [
+    ghc
+    nix-tree
+  ];
+
+  xmonadPkgs = with pkgs; [
+    haskellPackages.xmobar
+    # networkmanager_dmenu
+    # networkmanagerapplet
+    xcape
+    xorg.xkbcomp
+    xorg.xmodmap
+    xorg.xrandr
+    nitrogen
+  ];
+
+  otherPkgs = with pkgs; [
+    dunst
+    compton
+  ];
+
+in
 {
   imports = [
     # let's start out easy
     ../../program/terminal/tmux/default.nix
+    ../../program/xmobar/default.nix
   ];
 
   nixpkgs.config.allowedUnfree = true;
 
-  home.packages = with pkgs; [
-    dunst
-    compton
-
-    # this is from the original author of this config and might be worth a try:
-    # see https://pwmt.org/projects/zathura
-    # zathura
-  ];
+  home.packages = xmonadPkgs ++ otherPkgs;
 
   services = {
     

@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }:
 
 {
+  # is this the right place?
+  programs.home-manager.enable = true;
+
   imports = [
 #    ../program/editor/neovim/default.nix
     ../program/terminal/tmux/default.nix
@@ -21,13 +24,13 @@
     bat
     broot
     exa
-#    fd
+    fd
     fd
     hexyl
     hyperfine
     #navi
     nushell
-#    ripgrep
+    ripgrep
     ripgrep
     starship
     tokei
@@ -43,8 +46,10 @@
 #    zoxide
     # TODO is this the correct place?
     libnotify
+    rofi
+    unzip
 
-    # Common CLI tools
+   # Common CLI tools
     fzf
     gnupg
     gnutar
@@ -102,7 +107,7 @@
     htop
 #    wtf
 #    lazygit
-#    neofetch
+    neofetch
 
     # Jokes
     cowsay
@@ -118,10 +123,13 @@
 
     # Devlopment Graphical
 #    android-studio
-#    vscode
+    vscode
 
     # Files and Networking
     sshfs
+
+    teams
+    keepassxc
   ];
 
 
